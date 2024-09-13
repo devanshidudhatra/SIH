@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Triage Tool - Hackathon Project</title>
+    <!-- Corrected link to the CSS file -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anta&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+       <!-- Navigation Bar -->
+       <nav class="navbar">
+        <div class="logo">Cyber Triage Tool</div>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+        </ul>
+      </nav>
+  
+      <!-- Hero Section -->
+      <header class="hero">
+        <video autoplay muted loop class="back-video">
+          <source src="{{ url_for('static', filename='images/bg_2.mp4') }}" type="video/mp4" />
+        </video>
+        <div class="hero-content">
+          <h1>Cyber Triage Tool</h1>
+          <p>
+            Revolutionizing Digital Forensics with Automated Incident Response
+          </p>
+          <a href="{{ url_for('analysis') }}" class="hero-btn">Explore Project</a>
+        </div>
+      </header>
+  
+      <!-- Project Overview Section -->
+      <section id="project-overview" class="section">
+        <div class="container">
+          <h2>Project Overview</h2>
+          <p>
+            Our Cyber Triage Tool leverages proven AI/ML models 
+            and advanced forensic technologies to streamline and accelerate 
+            digital investigations. This end-to-end solution makes it practical 
+            for both seasoned investigators and newcomers to efficiently gather, 
+            analyze, and interpret evidence with cutting-edge tools. From detecting 
+            breaches to uncovering suspicious activities, our tool automates complex 
+            forensic processes, ensuring reliable and actionable insights. With its 
+            intuitive interface and powerful analytics, it’s the go-to solution for 
+            fast, accurate, and thorough digital forensic investigations—empowering 
+            you to solve cases swiftly and confidently.
+          </p>
+          <img
+            src="{{ url_for('static', filename='images/Screenshot 2024-09-05 005639.jpg') }}"
+            alt="Project Overview"
+            class="responsive-img"
+          />
+        </div>
+      </section>
+  
+      <!-- Features Section -->
+      <section id="features" class="section">
+        <div class="container">
+          <h2>Key Features</h2>
+          <ul>
+            <li>
+              <strong>Feature 1: Deleted File Recovery</strong> 
+            </li>
+            <li>
+              <strong>Feature 2: Malware Forensics</strong> 
+            </li>
+            <li>
+              <strong>Feature 3: Network Forensics</strong> 
+            </li>
+            <li>
+              <strong>Feature 4: Web Forensic</strong>
+            </li>
+          </ul>
+        </div>
+      </section>
+  
+      <!-- Tech Stack Section -->
+      <section id="tech-stack" class="section">
+        <div class="container">
+          <h2>Tech Stack</h2>
+          <p>
+            This project is built using a robust set of technologies tailored for
+            scalability and performance:
+          </p>
+          <ul>
+            <li>
+              <strong>Frontend:</strong> HTML5, CSS3, JavaScript
+            </li>
+            <li>
+              <strong>Backend:</strong> Python (Flask)
+            </li>
+            <li>
+              <strong>AI/ML Integration:</strong> TensorFlow, Scikit-learn, Pandas, NumPy
+            </li>
+            <li>
+              <strong>Database:</strong> PostgreSQL
+            </li>
+            <li>
+              <strong>Networking Tools:</strong> Wireshark
+            </li>
+            <li>
+              <strong>Operating System Utilities:</strong> OS Module
+            </li>
+            <li>
+              <strong>Analytics:</strong> Google Analytics
+            </li>
+          </ul>
+        </div>
+      </section>
+  
+      <!-- Gallery Section -->
+      <section id="gallery" class="section">
+        <div class="container">
+          <h2>Project Gallery</h2>
+          <p>
+            Here are some snapshots from our development process and final
+            product:
+          </p>
+          <div class="gallery">
+            <img
+              src="{{ url_for('static', filename='images/malware.png') }}"
+              alt="Development Snapshot"
+              class="responsive-img"
+            />
+            <img
+              src="{{ url_for('static', filename='images/restore.png') }}"
+              alt="Team Collaboration"
+              class="responsive-img"
+            />
+            <img
+              src="{{ url_for('static', filename='images/network.png') }}"
+              alt="Tool Interface"
+              class="responsive-img"
+            />
+          </div>
+        </div>
+      </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+      <div class="container">
+        <h2>Meet the Team</h2>
+        <p>
+          Our talented and dedicated team has brought this project to life,
+          integrating forensic expertise with advanced technological solutions.
+        </p>
+        <ul>
+          <li>
+            <strong id="li1">Dev Patel:</strong> Project Lead, Frontend &
+            Security Developer
+          </li>
+          <li>
+            <strong id="li2">Kathan Vyas:</strong> Backend & Security Developer
+          </li>
+          <li><strong id="li3">Meet Bhatt:</strong> AI/ML Developer</li>
+          <li><strong id="li4">Heet Dobariya:</strong> AI/ML Developer</li>
+          <li>
+            <strong id="li5">Devanshi Dudhatra:</strong> Backend Developer &
+            Model Integration
+          </li>
+          <li><strong id="li6">Maitri Patel:</strong> Frontend Developer</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Cyber Triage Tool. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>

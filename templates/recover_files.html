@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Restoration Progress</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 80%;
+            height: 200px;
+            overflow-y: scroll;
+            background-color: #fafafa;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            color: #fff;
+            background-color: #0083b0;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005f7a;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .drive-selection {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>File Restoration Progress</h1>
+
+        <div class="drive-selection">
+            <label for="drive">Select Drive:</label>
+            <select id="drive">
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+        </div>
+
+        <div id="progress" class="progress">
+            <!-- Progress updates will be displayed here -->
+        </div>
+
+        <div class="button-container">
+            <button onclick="startRestoration()">Start Restoration</button>
+            <button onclick="stopRestoration()">Stop Restoration</button>
+            <button onclick="downloadImages()">Download Restored Files</button> <!-- Added Download Button -->
+        </div>
+
+        <footer>
+            <p>&copy; 2024 File Restoration Tool. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        let eventSource = null;
+
+        function startRestoration() {
+            const selectedDrive = document.getElementById('drive').value;
+            document.getElementById('progress').innerHTML = "Restoration Started<br>"
+            if (eventSource) {
+                eventSource.close();
+            }
+
+            eventSource = new EventSource(`/start_restore?drive=${selectedDrive}`);
+
+            eventSource.onmessage = function(event) {
+                const progressDiv = document.getElementById('progress');
+                progressDiv.innerHTML += event.data + "<br>";
+                progressDiv.scrollTop = progressDiv.scrollHeight;
+            };
+
+            eventSource.onerror = function() {
+                if (eventSource) {
+                    eventSource.close();
+                }
+                const progressDiv = document.getElementById('progress');
+                progressDiv.innerHTML += "An error occurred. Connection closed.<br>";
+            };
+        }
+
+        function stopRestoration() {
+            fetch('/stop_restore', { method: 'POST' })
+                .then(response => response.text())
+                .then(data => {
+                    const progressDiv = document.getElementById('progress');
+                    progressDiv.innerHTML += data + "<br>";
+
+                    if (eventSource) {
+                        eventSource.close();
+                    }
+                })
+                .catch(error => {
+                    const progressDiv = document.getElementById('progress');
+                    progressDiv.innerHTML += "Error stopping restoration: " + error + "<br>";
+                });
+        }
+
+        function downloadImages() {
+            window.location.href = "/download_all";  // Added download functionality
+        }
+    </script>
+
+</body>
+
+</html>

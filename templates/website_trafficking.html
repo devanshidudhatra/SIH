@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Trafficking Analytics</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Website Trafficking Analytics</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Active Users</th>
+                </tr>
+            </thead>
+            <tbody id="analytics-table-body">
+                <!-- Data rows will be inserted here dynamically -->
+            </tbody>
+        </table>
+
+        <footer>
+            &copy; 2024 Your Company Name. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        // Function to fetch and display analytics data
+        async function fetchAnalyticsData() {
+            try {
+                // Fetch analytics data from your Flask route
+                const response = await fetch('/get_analytics_data');
+                const data = await response.json();
+
+                // Get the table body element
+                const tableBody = document.getElementById('analytics-table-body');
+
+                // Clear any existing rows
+                tableBody.innerHTML = '';
+
+                // Insert new rows
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    const tdCity = document.createElement('td');
+                    const tdActiveUsers = document.createElement('td');
+
+                    tdCity.textContent = row.city;
+                    tdActiveUsers.textContent = row.activeUsers;
+
+                    tr.appendChild(tdCity);
+                    tr.appendChild(tdActiveUsers);
+
+                    tableBody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Error fetching analytics data:', error);
+            }
+        }
+
+        // Fetch data when the page loads
+        window.onload = fetchAnalyticsData;
+    </script>
+
+</body>
+
+</html>

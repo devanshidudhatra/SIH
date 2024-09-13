@@ -1,0 +1,406 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+
+
+
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #282c34;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    color: #61dafb;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #61dafb;
+}
+
+
+.back-video {
+    position: fixed;
+    right: 0;
+    /* bottom: 0; */
+    top: 0;
+    z-index: -1;
+    filter: brightness(0.4);
+
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 80px;
+    /* margin-bottom: 20px; */
+}
+
+.hero-content p {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    padding: 12px 35px;
+    font-size: 1.3rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    /* Gradient with a cyber-tech feel */
+    border: 2px solid #00b4db;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Slight shadow for depth */
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+
+}
+
+/* Remove whitish background hover effect */
+.hero-btn::before {
+    display: none;
+    /* No background effect on hover */
+}
+
+.hero-btn:hover {
+    background: linear-gradient(135deg, #0083b0, #00b4db);
+    /* Reverse gradient on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Increase shadow on hover */
+    transform: translateY(-3px);
+    /* Subtle lift on hover */
+}
+
+.hero-btn:active {
+    transform: translateY(1px);
+    /* Lower the button when clicked */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.hero-btn:active {
+    transform: translateY(1px);
+    /* Lower the button when clicked */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Section Common Styling */
+.section {
+    padding: 60px 0;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    color: #333;
+}
+
+.section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/* Drop Zone Styles */
+#drop-zone {
+    border: 2px dashed #4caf50;
+    padding: 50px;
+    text-align: center;
+    color: #888;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+#drop-zone i {
+    font-size: 48px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+#drop-zone input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+#file-list {
+    margin-top: 20px;
+}
+
+
+
+/* Project Overview Section */
+#project-overview {
+    background-color: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 50px;
+}
+
+#project-overview p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+/* Features Section */
+/* #features .section {
+    background-color: #e9f1f7;
+} */
+
+/* #features div {
+    background-color: #e9f1f7;
+} */
+
+#features {
+    background-color: #ffffff;
+}
+
+#features ul {
+    list-style: none;
+    padding: 0;
+}
+
+#features ul li {
+    background: #164450;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+#features ul li:hover {
+    transform: translateY(-5px);
+}
+
+#features ul li strong {
+    font-size: 1.1rem;
+}
+
+/* Tech Stack Section */
+
+#tech-stack {
+    background-color: rgb(255, 255, 255);
+}
+
+#tech-stack p {
+    font-size: medium bold;
+    padding-bottom: 20px;
+}
+
+#tech-stack ul {
+    list-style-type: none;
+}
+
+#tech-stack ul li {
+    background: #164450;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* Gallery Section */
+#gallery {
+    background-color: rgb(255, 255, 255);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Team Section */
+#team {
+    background-color: white;
+}
+
+
+#team ul {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 30px;
+}
+
+#team ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    background-color: #164450;
+    color: rgb(219, 177, 177);
+    border-left: 4px solid #61dafb;
+    transition: background-color 0.2s ease;
+}
+
+#team ul #li1 {
+    color: white;
+}
+
+#team ul #li2 {
+    color: white;
+}
+
+#team ul #li3 {
+    color: white;
+}
+
+#team ul #li4 {
+    color: white;
+}
+
+#team ul #li5 {
+    color: white;
+}
+
+#team ul #li6 {
+    color: white;
+}
+
+
+/* #team ul li:hover {
+    background-color: #e9f1f7;
+} */
+
+#team ul li strong {
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+    }
+
+    .navbar ul.showing {
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+}

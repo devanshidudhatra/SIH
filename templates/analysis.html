@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Analysis - Cyber Triage Tool</title>
+    <!-- Update CSS link for Flask -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Styles */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e2f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #00aaff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #282c34;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            color: #61dafb;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #61dafb;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 0;
+        }
+
+        #analysis p {
+            text-align: center;
+            font-size: 1.1em;
+            color: #bbb;
+            margin-top: 10px;
+        }
+
+        #drop-zone {
+            text-align: center;
+            padding: 60px;
+            background-color: #0d1a2b;
+            border: 2px dashed #00aaff;
+            border-radius: 10px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        #drop-zone i {
+            font-size: 3em;
+            color: #00aaff;
+        }
+
+        #drop-zone p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        /* Features Section */
+        .feature-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            background-color: #0d1a2b;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-box .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00aaff;
+        }
+
+        .feature-button {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #00aaff;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .feature-button:hover {
+            color: #61dafb;
+        }
+
+        .feature-box p {
+            text-align: center;
+            font-size: 1em;
+            color: #bbb;
+        }
+
+        .feature-box:hover p {
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            background-color: #0d1a2b;
+            text-align: center;
+            color: #bbb;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Cyber Triage Tool</div>
+        <ul>
+            <!-- Update links for Flask -->
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+        </ul>
+    </nav>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-box">
+                <div class="icon"><i class="fas fa-virus"></i></div>
+                <button class="feature-button" onclick="window.location.href='{{ url_for('malware_analysis') }}'">Malware Forensics</button>
+                <p>Analyze malware within system images to identify threats in a forensic investigation.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><i class="fas fa-file-alt"></i></div>
+                <button class="feature-button" onclick="window.location.href='{{ url_for('recover_files') }}'">Recover Deleted Files</button>
+                <p>Get back files that were deleted as part of the forensic investigation.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><i class="fas fa-network-wired"></i></div>
+                <button class="feature-button" onclick="window.location.href='{{ url_for('network_trafficking') }}'">Network Forensics</button>
+                <p>Investigate network traffic to identify suspicious activity.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><i class="fas fa-traffic-light"></i></div>
+                <button class="feature-button" onclick="window.location.href='{{ url_for('website_trafficking') }}'">Website Trafficking</button>
+                <p>Track down and analyze suspicious website traffic behavior.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cyber Triage Tool. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

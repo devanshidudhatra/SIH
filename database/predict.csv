@@ -1,0 +1,2 @@
+hash,millisecond,classification,state,usage_counter,prio,static_prio,normal_prio,policy,vm_pgoff,vm_truncate_count,task_size,cached_hole_size,free_area_cache,mm_users,map_count,hiwater_rss,total_vm,shared_vm,exec_vm,reserved_vm,nr_ptes,end_data,last_interval,nvcsw,nivcsw,min_flt,maj_flt,fs_excl_counter,lock,utime,stime,gtime,cgtime,signal_nvcsw
+com.vbsmojivy.mianzed.apk,31,benign,28672,0,3069939712,29646,0,0,0,15737,0,0,1,710,10225,0,61,120,146,158,0,120,2,369208,45,0,120,4,3204448256,399684,4,1,0,0
